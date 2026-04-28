@@ -35,6 +35,16 @@ function buscarCampanha(nome) {
         console.log(campanha.nome)
     }
 }
+function listarCampanhasAtivas() {
+  const ativas = campanhas.filter(c => c.status === "ativa");
+
+  console.log("🟢 Campanhas ativas:");
+
+  ativas.forEach(c => {
+    console.log(`${c.id} - ${c.nome}`);
+  });
+}
+
 // Testando
 criarCampanha("Black Friday", "Promoção de novembro");
 criarCampanha("Lançamento Produto", "Campanha de lançamento");
@@ -43,6 +53,8 @@ listarCampanhas();
 atualizarStatus(3,"inativo");
 listarCampanhas();
 buscarCampanha("Black Friday");
+listarCampanhasAtivas();
+
 
 
 
