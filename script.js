@@ -28,16 +28,51 @@ function adicionarCampanha() {
 }
 
 function renderizarCampanhas() {
-    const lista = document.getElementById("lista");
+  const lista = document.getElementById("lista");
 
-    lista.innerHTML = "";
+  lista.innerHTML = "";
 
-    campanhas.forEach(c => {
-        const item = document.createElement("li");
+  campanhas.forEach(c => {
+    const item = document.createElement("li");
 
-        item.textContent = `${c.nome} - ${c.status}`;
+    // Texto principal com nome + status + descrição
+    const texto = document.createElement("span");
+    texto.textContent = `${c.nome} - ${c.status} | ${c.descricao}`;
 
-        lista.appendChild(item);
-    
-    });
+    item.appendChild(texto);
+
+    // BOTÃO PAUSAR / ATIVAR
+    const botaoStatus = document.createElement("button");
+
+    if (c.status === "ativa") {
+      botaoStatus.textContent = "Pausar";
+    } else {
+      botaoStatus.textContent = "Ativar";
+    }
+
+    botaoStatus.onclick = () => {
+      if (c.status === "ativa") {
+        c.status = "pausada";
+      } else {
+        c.status = "ativa";
+      }
+
+      renderizarCampanhas();
+    };
+
+    item.appendChild(botaoStatus);
+
+    // BOTÃO DELETAR
+    const botaoDeletar = document.createElement("button");
+    botaoDeletar.textContent = "Excluir";
+
+    botaoDeletar.onclick = () => {
+      campanhas = campanhas.filter(camp => camp.id !== c.id);
+      renderizarCampanhas();
+    };
+
+    item.appendChild(botaoDeletar);
+
+    lista.appendChild(item);
+  });
 }
