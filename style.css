@@ -1,6 +1,9 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
+
   background-color: #f4f6f9;
+
+  color: #1f2937;
 
   display: flex;
   justify-content: center;
@@ -8,45 +11,67 @@ body {
   padding-top: 50px;
 }
 
+/* CARD PRINCIPAL */
 .container {
   background: white;
 
-  width: 600px;
+  width: 650px;
 
   padding: 25px;
 
-  border-radius: 12px;
+  border-radius: 16px;
 
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
+/* TÍTULO */
 h1 {
   margin-bottom: 20px;
+
+  font-size: 28px;
+
+  font-weight: 700;
 }
 
+/* FORMULÁRIO */
 .formulario {
   display: flex;
+
   gap: 10px;
 
   margin-bottom: 20px;
 }
 
+/* INPUTS */
 input {
   flex: 1;
 
-  padding: 10px;
+  padding: 12px;
 
-  border: 1px solid #ccc;
+  border: 1px solid #d1d5db;
 
-  border-radius: 8px;
+  border-radius: 10px;
+
+  font-size: 14px;
+
+  outline: none;
+
+  transition: 0.2s;
 }
 
+input:focus {
+  border-color: #4f46e5;
+
+  box-shadow: 0 0 0 3px rgba(79,70,229,0.15);
+}
+
+/* BOTÕES */
 button {
   padding: 10px 14px;
 
   border: none;
 
-  border-radius: 8px;
+  border-radius: 10px;
 
   cursor: pointer;
 
@@ -54,31 +79,70 @@ button {
 
   color: white;
 
+  font-weight: 600;
+
   transition: 0.2s;
 }
 
 button:hover {
-  opacity: 0.8;
+  transform: translateY(-1px);
+
+  opacity: 0.9;
 }
 
+/* LISTA */
 ul {
   list-style: none;
 
   padding: 0;
 }
 
+/* CARD DA CAMPANHA */
 li {
   background: #f9fafb;
 
   margin-bottom: 12px;
 
-  padding: 15px;
+  padding: 16px;
 
-  border-radius: 10px;
+  border-radius: 12px;
 
   display: flex;
 
   justify-content: space-between;
 
   align-items: center;
+
+  transition: 0.2s;
+}
+
+li:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+/* ÁREA DOS BOTÕES */
+li div {
+  display: flex;
+
+  gap: 8px;
+}
+
+/* BOTÃO STATUS */
+.botao-status {
+  background-color: #f59e0b;
+}
+
+.botao-status:hover {
+  background-color: #d97706;
+}
+
+/* BOTÃO EXCLUIR */
+.botao-excluir {
+  background-color: #ef4444;
+}
+
+.botao-excluir:hover {
+  background-color: #dc2626;
 }

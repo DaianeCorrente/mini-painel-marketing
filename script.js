@@ -49,7 +49,10 @@ texto.textContent = `${iconeStatus} ${c.nome} - ${c.status} | ${c.descricao}`
 
     item.appendChild(texto);
 
-    // BOTÃO PAUSAR / ATIVAR
+      // ÁREA DOS BOTÕES
+    const areaBotoes = document.createElement("div");
+
+    // BOTÃO STATUS
     const botaoStatus = document.createElement("button");
 
     if (c.status === "ativa") {
@@ -57,8 +60,11 @@ texto.textContent = `${iconeStatus} ${c.nome} - ${c.status} | ${c.descricao}`
     } else {
       botaoStatus.textContent = "Ativar";
     }
+ // ADICIONANDO CLASSE CSS
+    botaoStatus.classList.add("botao-status");
 
     botaoStatus.onclick = () => {
+
       if (c.status === "ativa") {
         c.status = "pausada";
       } else {
@@ -68,25 +74,35 @@ texto.textContent = `${iconeStatus} ${c.nome} - ${c.status} | ${c.descricao}`
       renderizarCampanhas();
     };
 
-    item.appendChild(botaoStatus);
-
-    // BOTÃO DELETAR
+    // BOTÃO EXCLUIR
     const botaoDeletar = document.createElement("button");
-botaoDeletar.textContent = "Excluir";
-    
-botaoDeletar.onclick = () => {
 
-  const confirmar = confirm("Tem certeza que deseja excluir essa campanha?");
+    botaoDeletar.textContent = "Excluir";
+     // ADICIONANDO CLASSE CSS
+    botaoDeletar.classList.add("botao-excluir");
 
-  if (confirmar) {
-    campanhas = campanhas.filter(camp => camp.id !== c.id);
+    botaoDeletar.onclick = () => {
 
-    renderizarCampanhas();
-  }
+      const confirmar = confirm("Tem certeza que deseja excluir essa campanha?");
+
+      if (confirmar) {
+
+        campanhas = campanhas.filter(camp => camp.id !== c.id);
+
+        renderizarCampanhas();
+      }
     };
 
-    item.appendChild(botaoDeletar);
+    // ADICIONANDO BOTÕES NA ÁREA
+    areaBotoes.appendChild(botaoStatus);
 
+    areaBotoes.appendChild(botaoDeletar);
+
+    // ADICIONANDO ÁREA DE BOTÕES NO ITEM
+    item.appendChild(areaBotoes);
+
+    // ADICIONANDO ITEM NA LISTA
     lista.appendChild(item);
+
   });
 }
