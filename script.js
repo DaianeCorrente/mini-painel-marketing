@@ -71,12 +71,15 @@ texto.textContent = `${iconeStatus} ${c.nome} - ${c.status} | ${c.descricao}`
     item.appendChild(botaoStatus);
 
     // BOTÃO DELETAR
-    const botaoDeletar = document.createElement("button");
-    botaoDeletar.textContent = "Excluir";
-
     botaoDeletar.onclick = () => {
-      campanhas = campanhas.filter(camp => camp.id !== c.id);
-      renderizarCampanhas();
+
+  const confirmar = confirm("Tem certeza que deseja excluir essa campanha?");
+
+  if (confirmar) {
+    campanhas = campanhas.filter(camp => camp.id !== c.id);
+
+    renderizarCampanhas();
+  }
     };
 
     item.appendChild(botaoDeletar);
