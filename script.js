@@ -37,7 +37,15 @@ function renderizarCampanhas() {
 
     // Texto principal com nome + status + descrição
     const texto = document.createElement("span");
-    texto.textContent = `${c.nome} - ${c.status} | ${c.descricao}`;
+    let iconeStatus;
+
+if (c.status === "ativa") {
+  iconeStatus = "🟢";
+} else {
+  iconeStatus = "🔴";
+}
+
+texto.textContent = `${iconeStatus} ${c.nome} - ${c.status} | ${c.descricao}`
 
     item.appendChild(texto);
 
