@@ -7,13 +7,22 @@
 </head>
 <body>
 
-  <h1>📊 Painel de Campanhas</h1>
+  <div class="container">
 
-  <input type="text" id="nome" placeholder="Nome da campanha">
-  <input type="text" id="descricao" placeholder="Descrição">
-  <button onclick="adicionarCampanha()">Adicionar</button>
+    <h1>📊 Painel de Campanhas</h1>
 
-  <ul id="lista"></ul>
+    <div class="formulario">
+      <input type="text" id="nome" placeholder="Nome da campanha">
+      <input type="text" id="descricao" placeholder="Descrição da campanha">
+
+      <button onclick="adicionarCampanha()">
+        Adicionar
+      </button>
+    </div>
+
+    <ul id="lista"></ul>
+
+  </div>
 
   <script src="script.js"></script>
 </body>

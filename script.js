@@ -71,7 +71,10 @@ texto.textContent = `${iconeStatus} ${c.nome} - ${c.status} | ${c.descricao}`
     item.appendChild(botaoStatus);
 
     // BOTÃO DELETAR
-    botaoDeletar.onclick = () => {
+    const botaoDeletar = document.createElement("button");
+botaoDeletar.textContent = "Excluir";
+    
+botaoDeletar.onclick = () => {
 
   const confirmar = confirm("Tem certeza que deseja excluir essa campanha?");
 
